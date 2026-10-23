@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Request Form - Student Assignment</title>
+    <style>
+        /* Simple student styling to keep layout clean and readable */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 20px;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            max-width: 650px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        fieldset {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        legend {
+            font-weight: bold;
+            padding: 0 5px;
+            color: #2c3e50;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .inline-label {
+            display: inline;
+            font-weight: normal;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="url"],
+        input[type="date"],
+        input[type="time"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .button-group {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 0 5px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button[type="submit"] {
+            background-color: #28a745;
+            color: white;
+        }
+
+        button[type="reset"] {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Business Service Request Form</h1>
+
+    <form method="post" action="#">
+
+        <!-- Section 1: Personal Information -->
+        <fieldset>
+            <legend>1. Personal Information</legend>
+
+            <div class="form-group">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" name="fullName" required minlength="2" maxlength="50" placeholder="e.g., Jane Doe">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required placeholder="e.g., student@example.com">
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number (Format: 123-456-7890)</label>
+                <input type="tel" id="phone" name="phone" required pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="123-456-7890">
+            </div>
+        </fieldset>
+
+        <!-- Section 2: Company Information -->
+        <fieldset>
+            <legend>2. Company Information</legend>
+
+            <div class="form-group">
+                <label for="companyName">Company Name</label>
+                <input type="text" id="companyName" name="companyName" required minlength="2" maxlength="100">
+            </div>
+
+            <div class="form-group">
+                <label for="companyWebsite">Company Website</label>
+                <input type="url" id="companyWebsite" name="companyWebsite" placeholder="https://example.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="companySize">Company Size</label>
+                <select id="companySize" name="companySize" required>
+                    <option value="">-- Please Select --</option>
+                    <option value="1-10">1 - 10 employees</option>
+                    <option value="11-50">11 - 50 employees</option>
+                    <option value="51-200">51 - 200 employees</option>
+                    <option value="201+">201+ employees</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="industry">Industry</label>
+                <input type="text" id="industry" name="industry" required minlength="3" maxlength="30">
+            </div>
+        </fieldset>
+
+        <!-- Section 3: Service Request -->
+        <fieldset>
+            <legend>3. Service Request</legend>
+
+            <div class="form-group">
+                <label>Service Type</label>
+                <input type="radio" id="consulting" name="serviceType" value="consulting" required>
+                <label for="consulting" class="inline-label">Consulting</label><br>
+
+                <input type="radio" id="development" name="serviceType" value="development">
+                <label for="development" class="inline-label">Development</label><br>
+
+                <input type="radio" id="design" name="serviceType" value="design">
+                <label for="design" class="inline-label">Design</label>
+            </div>
+
+            <div class="form-group">
+                <label>Preferred Contact Method (Select at least one)</label>
+                <input type="checkbox" id="contactEmail" name="contactMethod" value="email">
+                <label for="contactEmail" class="inline-label">Email</label><br>
+
+                <input type="checkbox" id="contactPhone" name="contactMethod" value="phone">
+                <label for="contactPhone" class="inline-label">Phone</label><br>
+
+                <input type="checkbox" id="contactSMS" name="contactMethod" value="sms">
+                <label for="contactSMS" class="inline-label">SMS</label>
+            </div>
+
+            <div class="form-group">
+                <label for="appointmentDate">Appointment Date</label>
+                <input type="date" id="appointmentDate" name="appointmentDate" required min="2026-01-01" max="2026-12-31">
+            </div>
+
+            <div class="form-group">
+                <label for="appointmentTime">Appointment Time</label>
+                <input type="time" id="appointmentTime" name="appointmentTime" required>
+            </div>
+
+            <div class="form-group">
+                <label for="budget">Budget Range ($)</label>
+                <input type="number" id="budget" name="budget" min="500" max="50000" step="500" placeholder="Min 500" required>
+            </div>
+        </fieldset>
+
+        <!-- Section 4: Message and Agreement -->
+        <fieldset>
+            <legend>4. Message and Agreement</legend>
+
+            <div class="form-group">
+                <label for="additionalInfo">Additional Information</label>
+                <textarea id="additionalInfo" name="additionalInfo" rows="4" maxlength="500" placeholder="Enter any extra details here..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <input type="checkbox" id="terms" name="terms" required>
+                <label for="terms" class="inline-label">I agree to the Terms and Conditions *</label>
+            </div>
+        </fieldset>
+
+        <!-- Submit and Reset Buttons -->
+        <div class="button-group">
+            <button type="submit">Submit Request</button>
+            <button type="reset">Reset Form</button>
+        </div>
+
+
+    </form>
+
+</body>
+</html>
